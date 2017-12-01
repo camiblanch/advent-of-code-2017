@@ -10,6 +10,17 @@ function getNextNumber(input, i) {
 	}
 }
 
+function getHalfwayNumber(input, i) {
+	var length = input.length;
+	var halfway = length / 2;
+
+	if (i + halfway < length) {
+		return parseInt(input[i + halfway]);
+	} else {
+		return parseInt(input[halfway - (length - i)]);
+	}
+}
+
 fs.readFile(fileName, 'utf8', function (err, input) {
 	if (err) {
 		return console.log(err);
@@ -18,7 +29,7 @@ fs.readFile(fileName, 'utf8', function (err, input) {
 
 	for (var i = 0; i < input.length; i++) {
 		var currNumber = parseInt(input[i]);
-		var nextNumber = getNextNumber(input, i);
+		var nextNumber = getHalfwayNumber(input, i);
 
 		if (currNumber === nextNumber) {
 			sum += currNumber;
