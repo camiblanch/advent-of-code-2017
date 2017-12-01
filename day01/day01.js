@@ -1,5 +1,7 @@
 var fs = require('fs');
 
+var fileName = 'input.txt';
+
 function getNextNumber(input, i) {
 	if (i === input.length - 1) {
 		return parseInt(input[0]);
@@ -8,7 +10,7 @@ function getNextNumber(input, i) {
 	}
 }
 
-fs.readFile('test-case-1.txt', 'utf8', function (err, input) {
+fs.readFile(fileName, 'utf8', function (err, input) {
 	if (err) {
 		return console.log(err);
 	}
