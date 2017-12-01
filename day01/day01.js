@@ -1,6 +1,14 @@
 var fs = require('fs');
 
-fs.readFile('test-case-0.txt', 'utf8', function (err, input) {
+function getNextNumber(input, i) {
+	if (i === input.length - 1) {
+		return parseInt(input[0]);
+	} else {
+		return parseInt(input[i + 1]);
+	}
+}
+
+fs.readFile('test-case-1.txt', 'utf8', function (err, input) {
 	if (err) {
 		return console.log(err);
 	}
@@ -8,7 +16,7 @@ fs.readFile('test-case-0.txt', 'utf8', function (err, input) {
 
 	for (var i = 0; i < input.length; i++) {
 		var currNumber = parseInt(input[i]);
-		var nextNumber = parseInt(input[i + 1]);
+		var nextNumber = getNextNumber(input, i);
 
 		if (currNumber === nextNumber) {
 			sum += currNumber;
